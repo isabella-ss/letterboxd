@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seu cantinho para organizar os filmes que você ama.">
+  <title>Letterbox — Diário de filmes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Letterbox início"><span class="brand-mark">L</span> letterbox<span class="brand-dot">.</span></a>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a class="active" href="#inicio">Início</a>
+      <a href="#catalogo">Meu catálogo</a>
+    </nav>
+    <a class="profile-chip" href="#catalogo"><span class="profile-avatar">C</span><span>Meu espaço</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="eyebrow-line"></span> SEU DIÁRIO DE CINEMA</span>
+        <h1>Todo filme tem<br>uma <em>história.</em></h1>
+        <p>Guarde os filmes que assistiu, descubra novos favoritos e mantenha seu universo cinematográfico organizado.</p>
+        <a class="primary-link" href="#catalogo">Explorar meu catálogo <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="poster poster-back"><span>THE<br>ART OF<br>STORY</span><small>NO. 024</small></div>
+        <div class="poster poster-front"><div class="poster-sun"></div><span class="poster-title">A NIGHT<br>AT THE<br>MOVIES</span><small>A FILM JOURNAL</small></div>
+        <div class="hero-stamp">EST. 2026<br>FILM CLUB</div>
+      </div>
+      <div class="hero-bottom"><span>01 / SUA COLEÇÃO</span><span>FEITO PARA QUEM AMA CINEMA <span class="spark">✳</span></span></div>
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow dark"><span class="eyebrow-line"></span> SUA ESTANTE DIGITAL</span>
+          <h2>Filmes <em>guardados.</em></h2>
+        </div>
+        <div class="catalog-count"><strong id="film-count">0</strong><span>filmes na coleção</span></div>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="Buscar um filme..." autocomplete="off">
+        </label>
+        <button class="add-button" id="open-modal" type="button"><span>＋</span> Adicionar filme</button>
+      </div>
+
+      <div id="status-message" class="status-message" role="status">Carregando sua coleção...</div>
+      <div id="film-grid" class="film-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon">✳</div>
+        <h3>Nenhum filme por aqui ainda.</h3>
+        <p>Adicione o primeiro título à sua coleção.</p>
+        <button class="text-button" id="empty-add" type="button">Adicionar primeiro filme <span>↗</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">L</span> letterbox<span class="brand-dot">.</span></a>
+    <span>UM LUGAR PARA CELEBRAR O CINEMA.</span>
+    <span>© 2026 LETTERBOX</span>
+  </footer>
+
+  <dialog class="film-dialog" id="film-dialog">
+    <form id="film-form" class="dialog-card">
+      <button class="close-button" id="close-modal" type="button" aria-label="Fechar">×</button>
+      <span class="eyebrow dark"><span class="eyebrow-line"></span> <span id="dialog-eyebrow">NOVA ENTRADA</span></span>
+      <h2 id="dialog-title">Adicionar <em>filme.</em></h2>
+      <p class="dialog-intro" id="dialog-intro">Registre mais uma história na sua estante.</p>
+      <label for="title">Título do filme</label>
+      <input id="title" name="titulo" type="text" maxlength="150" placeholder="Ex.: Interestelar" required>
+      <label for="year">Ano de lançamento <span class="optional">(opcional)</span></label>
+      <input id="year" name="ano" type="number" min="1888" max="2100" placeholder="Ex.: 2014">
+      <label for="genre">Gênero <span class="optional">(opcional)</span></label>
+      <select id="genre" name="genero_id"><option value="">Sem gênero</option></select>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <button class="add-button submit-button" type="submit">Salvar filme <span>↗</span></button>
+    </form>
+  </dialog>
+</body>
+</html>
