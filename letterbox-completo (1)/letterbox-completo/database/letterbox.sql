@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS letterbox
   
 USE letterbox;
 
--- Tabela simples do enunciado: chave (id) + descricao (nome)
+-- Tabela simples do enunciado: chave (id) + descricao (nome) --> simples
 CREATE TABLE IF NOT EXISTS generos (
   id   INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(50) NOT NULL UNIQUE
